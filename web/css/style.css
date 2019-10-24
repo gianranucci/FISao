@@ -1,0 +1,144 @@
+.thumbnail {margin-bottom:6px;}
+
+.carousel-control.left,.carousel-control.right{
+  background-image:none;
+  margin-top:10%;
+  width:5%;
+} 
+            
+.btn:hover{
+    color: white !important;
+}
+
+.btn a:active{
+    color: white;
+}
+body{
+    background-color: #E3E3E3;
+}
+.navbar-custom {
+    color: #red;
+    background-color: white;
+}
+.nav-link{
+    color:black;
+}
+.top{
+    background: white !important;
+}
+.logo{
+    background:#E3E3E3; 
+}
+.redes{
+    margin: 5px;
+}
+.cuerpo{
+    background: #78982A;
+}
+.nav-link:hover{
+	background:#78982A !important; 
+}
+
+a:hover{
+	color:white;
+}
+a:focus{
+	color: blue;
+}
+.navbar-brand{
+    color:black;
+}
+.navbar-brand:hover{
+    	background:#78982A !important;
+}
+.navbar-toggler {
+  background-color: #145112;
+  border-color: black;
+}
+
+.navbar-toggler  .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.85)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+.inicio{
+    color:white;
+}
+.container-scroll {
+    overflow-x: auto;
+  }
+  a{
+      color: white;
+  }
+ form{
+		width: 50%;
+		background-color: #e3e3e3;
+		float: left;
+		}
+
+		input[type=text], input[type=password]{
+			padding: 10px;
+
+			width: 380px;
+		}
+		input[type="submit"]{
+			border: 0;
+			float: left;
+			background-color: green;
+			border: solid 1px black;
+			padding: 10px 20px;
+		}
+		input[type="reset"]{
+			border: 0;
+			float: left;
+			margin-left: 15px; 
+			background-color: orange;
+			border: solid 1px black;
+			padding: 10px 20px;
+		}
+
+                .barra-top{
+                    color: black;
+                    background:transparent;
+                    font-family: sans-serif;
+                    font-style:italic;
+                }
+                h1::selection{
+                    color: white;
+                    background:#78982A; 
+                }
+                #searchBtn{
+                margin-left: 10px;
+                float: left;
+                width: 80px;
+                height: 30px;
+                color: #fff;
+                font-size: 14px;
+                font-weight: bold;
+                cursor: pointer
+                }
+                #busqueda{
+                border: 1px solid #8bce57;
+                float: left;
+                width: 200px;
+                height:30px;
+                }
+                .barraNav{
+                    background: #78982A;
+                }
+                .formCal{
+                    width: 100%;
+                    background: transparent;
+                    margin-top: 15px; 
+                }
+                .ad{
+                    color: white;
+                }
+                .seccion{
+                    background: #333333;
+                    width: 100%;
+                    height: 30px;
+                    color: white;
+                    margin-bottom: 15px;
+                }
+                .barra-top:hover{
+                    background: grey;
+                }
