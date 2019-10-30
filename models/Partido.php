@@ -36,8 +36,8 @@ class Partido extends \yii\db\ActiveRecord
     {
         return [
             [['equipolocal_id', 'equipovisitante_id', 'cancha_id', 'liga_id'], 'integer'],
-            [['fecha_inicio'], 'safe'],
-            [['liga_id'], 'exist', 'skipOnError' => true, 'targetClass' => Liga::className(), 'targetAttribute' => ['liga_id' => 'id_liga']],
+            [['fecha_inicio','fecha_id'], 'safe'],
+            [['fecha_id'], 'exist', 'skipOnError' => true, 'targetClass' => Fecha::className(), 'targetAttribute' => ['fecha_id' => 'id_fecha']],
             [['cancha_id'], 'exist', 'skipOnError' => true, 'targetClass' => Canchas::className(), 'targetAttribute' => ['cancha_id' => 'id_cancha']],
             [['equipolocal_id'], 'exist', 'skipOnError' => true, 'targetClass' => Equipo::className(), 'targetAttribute' => ['equipolocal_id' => 'id_equipo']],
             [['equipovisitante_id'], 'exist', 'skipOnError' => true, 'targetClass' => Equipo::className(), 'targetAttribute' => ['equipovisitante_id' => 'id_equipo']],
@@ -66,6 +66,10 @@ class Partido extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Liga::className(), ['id_liga' => 'liga_id']);
     }
+    public function getFecha()
+    {
+        return $this->hasOne(Liga::className(), ['id_fecha' => 'fecha_id']);
+    }
 
     /**
      * @return \yii\db\ActiveQuery
@@ -90,4 +94,6 @@ class Partido extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Equipo::className(), ['id_equipo' => 'equipovisitante_id']);
     }
+    
+    
 }

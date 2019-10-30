@@ -105,9 +105,10 @@ class PartidoController extends Controller
      */
     public function actionDelete($id)
     {
+        $fecha_id = $this->findModel($id)->fecha_id;
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['crear-partido-por-fecha','fecha_id'=>$fecha_id]);
     }
 
     /**
@@ -128,29 +129,28 @@ class PartidoController extends Controller
     
     function actionCrearPartidoPorFecha($fecha_id)
     {
-//         $count = Yii::$app->request->post('cant');
-         $count = 0;
-        $categoria = Yii::$app->request->post('categoria');
-       
-//        $count = 3;
-        $partidos = [new Partido(['fecha_id'=>$fecha_id])];
-        for ($i = 0; $i < $count; $i++) {
-            $partidos[] = new Partido(['fecha_id'=>$fecha_id]);
+        
+        $addPartido = Yii::$app->request->post('add-partido');
+        if($addPartido){
+            $partido = new Partido(['fecha_id'=>$fecha_id]);
+            $partido->save();
         }
-//        $model = new Jugador();jugadores
+        
+        $partidos = Partido::find()->where(['fecha_id'=>$fecha_id])->all();
 
         if (Model::loadMultiple($partidos, Yii::$app->request->post()) && Model::validateMultiple($partidos)) {
             foreach ($partidos as $partido) {
                 $partido->save(false);
             }
-            return $this->redirect('index');
+//            return $this->redirect('index');
         }
 
         return $this->render('multiCreate', [
-//                    'model' => $model,
                     'partidos' => $partidos,
-                    'categoria'=>$categoria,
+                    'fecha_id' => $fecha_id,
         ]);
         
     }
+    
+  
 }
