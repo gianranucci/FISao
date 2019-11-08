@@ -2,11 +2,12 @@
 
 use yii\helpers\Html;
 use yii\bootstrap4\ActiveForm;
+use kartik\datetime\DateTimePicker;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Jugador */
 
-$this->title = "Partidos de la $fecha_id Fecha ";
+$this->title = "Partidos de la $fecha_nro Fecha ";
 $this->params['breadcrumbs'][] = ['label' => 'Partidos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -35,7 +36,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 <tr class="partido">
 
                     <td>
-                        <?= $form->field($model, "[$i]" . 'fecha_inicio')->textInput()->label(false) ?>
+                        <?php
+                        echo $form->field($model, "[$i]" .'fecha_inicio')->widget(DateTimePicker::classname(), [
+                            'options' => ['placeholder' => 'Elija una fecha'],
+                            'pluginOptions' => [
+                                'autoclose' => true
+                            ]
+                        ])->label(false); ?>
                     </td>
                     <td>
                         <?php
@@ -78,7 +85,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         Html::a('Borrar', ['delete', 'id' => $model->id_partido], [
                             'class' => 'btn btn-danger',
                             'data' => [
-                                'confirm' => 'Are you sure you want to delete this item?',
+                                'confirm' => 'Esta seguro que desea borrarlo?',
                                 'method' => 'post',
                             ],
                         ])
@@ -91,7 +98,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="form-group">
         <input type="hidden" id="add-partido" name="add-partido" value=0>
         <?= Html::button('+', ['class' => 'btn btn-primary add-partido']) ?>
-    <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+    <?= Html::submitButton('Guardar', ['class' => 'btn btn-success']) ?>
+      <?= Html::a('Terminar', ['/partido/index'], ['class'=>'btn btn-primary']) ?>
     </div>
     <?php ActiveForm::end(); ?>
 

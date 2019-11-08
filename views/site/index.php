@@ -25,6 +25,7 @@ $this->params['frontend']=true;
                 <p><a class="btn btn-lg btn-danger" href="index.php?r=canchas%2Findex">Crear Cancha</a></p>
                 <p><a class="btn btn-lg btn-danger" href="index.php?r=goles%2Findex">Crear Goles</a></p>
                                 <p><a class="btn btn-lg btn-danger" href="index.php?r=gii">Gii</a></p>
+                                <p><a class="btn btn-lg btn-success" href="index.php?r=fecha%2Findex">Crear Partido/Fecha</a></p>
             </div>
         </div>
 

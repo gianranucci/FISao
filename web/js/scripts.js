@@ -1,4 +1,9 @@
 
+
+
+
+
+
 $(document).ready(function() {
         
    /* activate the carousel */

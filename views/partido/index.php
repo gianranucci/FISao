@@ -27,12 +27,18 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id_partido',
-            'equipolocal_id',
-            'equipovisitante_id',
-            'cancha_id',
+            'equipolocal.nombre_equipo',
+            'equipovisitante.nombre_equipo',
+            'cancha.nombre_cancha',
             'fecha_inicio',
-            //'liga_id',
-
+            
+                     [
+                'label'=>'Goles',
+                'format'=>'raw',
+                'value'=> function($model){
+                    return Html::a('Cargar Goles', ['/partido/cargar-goles','id'=>$model->id_partido], ['class'=>'btn btn-primary']);
+                }
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

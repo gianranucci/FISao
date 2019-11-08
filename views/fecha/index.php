@@ -30,11 +30,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'torneo.nombre_torneo',
             'numero',
 //            'estado',
-            [
+           [
                 'label'=>'Partidos',
                 'format'=>'raw',
                 'value'=> function($model){
-                    return Html::a('Ir a Partidos', ['/partido/crear-partido-por-fecha','fecha_id'=>$model->id_fecha], ['class'=>'btn btn-primary']);
+                    return Html::a('Ir a Partidos', ['/partido/crear-partido-por-fecha','fecha_nro'=>$model->numero], ['class'=>'btn btn-primary']);
                 }
             ],
 

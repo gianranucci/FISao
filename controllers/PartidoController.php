@@ -127,16 +127,16 @@ class PartidoController extends Controller
         throw new NotFoundHttpException('The requested page does not exist.');
     }
     
-    function actionCrearPartidoPorFecha($fecha_id)
+    function actionCrearPartidoPorFecha($fecha_nro)
     {
         
         $addPartido = Yii::$app->request->post('add-partido');
         if($addPartido){
-            $partido = new Partido(['fecha_id'=>$fecha_id]);
+            $partido = new Partido(['fecha_id'=>$fecha_nro]);
             $partido->save();
         }
         
-        $partidos = Partido::find()->where(['fecha_id'=>$fecha_id])->all();
+        $partidos = Partido::find()->where(['fecha_id'=>$fecha_nro])->all();
 
         if (Model::loadMultiple($partidos, Yii::$app->request->post()) && Model::validateMultiple($partidos)) {
             foreach ($partidos as $partido) {
@@ -147,9 +147,13 @@ class PartidoController extends Controller
 
         return $this->render('multiCreate', [
                     'partidos' => $partidos,
-                    'fecha_id' => $fecha_id,
+                    'fecha_nro' => $fecha_nro,
         ]);
         
+    }
+    public function actionCargarGoles($id){
+        $model = Partido::findOne($id);
+        return $this->render('cargarGoles',['partido'=>$model]);
     }
     
   

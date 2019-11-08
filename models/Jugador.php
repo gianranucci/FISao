@@ -59,4 +59,10 @@ class Jugador extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Equipo::className(), ['id_equipo' => 'equipo_id']);
     }
+    
+    
+    function golesPartido($partido_id){
+        $gol = Goles::findOne(['partido_id'=> $partido_id, 'jugador_id'=> $this->id_jugador]);
+        return $gol->cant_goles;
+    }
 }

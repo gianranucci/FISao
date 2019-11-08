@@ -29,7 +29,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'fecha_inicio')->textInput() ?>
     <?php
         $liga = app\models\Liga::find()->all();
-        $categorias = app\models\Equipo::find()->groupBy(['categoria'])->all();
+        $categorias = app\models\Equipo::find()->select('categoria')->groupBy(['categoria'])->all();
         $partidoL = yii\helpers\ArrayHelper::map($categorias,'categoria', 'categoria');
     ?>
     <?= $form->field($model, 'liga_id')->dropDownList($partidoL,['prompt'=>'Seleccione la liga']); ?>
