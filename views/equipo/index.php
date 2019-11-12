@@ -31,7 +31,13 @@ $this->params['breadcrumbs'][] = $this->title;
 //            'club_id',
             'dt_id',
             'categoria',
-
+            [
+                'label'=>'Jugadores',
+                'format'=>'raw',
+                'value'=> function($model){
+                    return Html::a('Cargar Jugador', ['/jugador/crear-jugador-por-equipo','equipo_id'=>$model->id_equipo], ['class'=>'btn btn-primary']);
+                }
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

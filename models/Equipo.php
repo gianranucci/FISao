@@ -71,7 +71,10 @@ class Equipo extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Club::className(), ['id_club' => 'club_id']);
     }
-
+    public function getNombreEquipo()
+    {
+        return $this->hasMany(Equipo::className(), ['nombre_equipo' => 'nombre_equipo']);
+    }
     /**
      * @return \yii\db\ActiveQuery
      */
@@ -98,11 +101,16 @@ class Equipo extends \yii\db\ActiveRecord
     
     function golesPartido($partido_id):int
     {
-        $golesPorEquipo = Goles::find(['partido_id' => $partido_id, 'equipo_id' => $this->id_equipo])->all();
+        $golesPorEquipo = Goles::find()->where(['partido_id' => $partido_id, 'equipo_id' => $this->id_equipo])->all();
         $golesEquipo = 0;
         
         foreach($golesPorEquipo as $goles)
         {
+            if($goles->cant_goles < 0){
+                $goles->cant_goles = 0;
+                $golesEquipo = $goles->cant_goles;
+                
+            }
             $golesEquipo += $goles->cant_goles;
             
         }

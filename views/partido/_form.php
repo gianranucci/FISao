@@ -12,13 +12,13 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
     <?php
-        $equipoA = app\models\Equipo::find()->all();
-        $partido = yii\helpers\ArrayHelper::map($equipoA,'id_equipo', 'nombre_equipo');
+    $equipoA = app\models\Equipo::find()->orderBy('nombre_equipo, categoria')->all();
+        $partido = yii\helpers\ArrayHelper::map($equipoA, 'id_equipo',  function($model) {return $model['nombre_equipo']."-".$model['categoria'];});
     ?>
     <?= $form->field($model, 'equipolocal_id')->dropDownList($partido,['prompt'=>'Seleccione el equipo Local']); ?>
     <?php
-        $equipoB = app\models\Equipo::find()->all();
-        $partidoB = yii\helpers\ArrayHelper::map($equipoA,'id_equipo', 'nombre_equipo');
+        $equipoB = app\models\Equipo::find()->orderBy('nombre_equipo, categoria')->all();
+        $partidoB = yii\helpers\ArrayHelper::map($equipoA,'id_equipo',function($model) {return $model['nombre_equipo']."-".$model['categoria'];});
     ?>
     <?= $form->field($model, 'equipovisitante_id')->dropDownList($partidoB,['prompt'=>'Seleccione el equipo Visitante']); ?>
     <?php
@@ -28,11 +28,11 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'cancha_id')->dropDownList($partidoC,['prompt'=>'Seleccione la cancha']) ?>
     <?= $form->field($model, 'fecha_inicio')->textInput() ?>
     <?php
-        $liga = app\models\Liga::find()->all();
-        $categorias = app\models\Equipo::find()->select('categoria')->groupBy(['categoria'])->all();
-        $partidoL = yii\helpers\ArrayHelper::map($categorias,'categoria', 'categoria');
+//    $liga = app\models\Liga::find()->all();
+//    $categorias = app\models\Equipo::find()->select('categoria')->groupBy(['categoria'])->all();
+//    $partidoL = yii\helpers\ArrayHelper::map($categorias, 'categoria', 'categoria');
     ?>
-    <?= $form->field($model, 'liga_id')->dropDownList($partidoL,['prompt'=>'Seleccione la liga']); ?>
+    <?php // echo  $form->field($model, 'liga_id')->dropDownList($partidoL, ['prompt' => 'Seleccione la liga']); ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

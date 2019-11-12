@@ -1,0 +1,10 @@
+                .marcador{
+                    width: 150px !important;
+                    height: 100px;
+                    font-size: 55pt;
+                    text-align: center;
+                    margin-left: 30%;
+                }
+                .goles-input{
+                    width: 80%;
+                }

@@ -71,30 +71,55 @@ class JugadorController extends Controller {
                     'model' => $model,
         ]);
     }
-
-    public function actionMultiCreate() {
-        $count = Yii::$app->request->post('cant');
+    
+     function actionCrearJugadorPorEquipo($equipo_id)
+    {
         
-       
-//        $count = 3;
-        $jugadores = [new Jugador()];
-        for ($i = 0; $i < $count; $i++) {
-            $jugadores[] = new Jugador();
+        $addJugador = Yii::$app->request->post('add-jugador');
+        if($addJugador){
+            $jugador = new Jugador(['equipo_id'=>$equipo_id]);
+            $jugador->save();
+            
         }
-//        $model = new Jugador();
+        $jugadores = Jugador::find()->where(['equipo_id'=>$equipo_id])->all();
 
         if (Model::loadMultiple($jugadores, Yii::$app->request->post()) && Model::validateMultiple($jugadores)) {
             foreach ($jugadores as $jugador) {
                 $jugador->save(false);
             }
-            return $this->redirect('index');
+//            return $this->redirect('index');
         }
 
         return $this->render('multiCreate', [
-//                    'model' => $model,
                     'jugadores' => $jugadores,
+                    'equipo_id' => $equipo_id,
         ]);
+        
     }
+
+//    public function actionMultiCreate() {
+//        $count = Yii::$app->request->post('cant');
+//        
+//       
+////        $count = 3;
+//        $jugadores = [new Jugador()];
+//        for ($i = 0; $i < $count; $i++) {
+//            $jugadores[] = new Jugador();
+//        }
+////        $model = new Jugador();
+//
+//        if (Model::loadMultiple($jugadores, Yii::$app->request->post()) && Model::validateMultiple($jugadores)) {
+//            foreach ($jugadores as $jugador) {
+//                $jugador->save(false);
+//            }
+//            return $this->redirect('index');
+//        }
+//
+//        return $this->render('multiCreate', [
+////                    'model' => $model,
+//                    'jugadores' => $jugadores,
+//        ]);
+    
 
     /**
      * Updates an existing Jugador model.

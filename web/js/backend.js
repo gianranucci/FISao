@@ -23,4 +23,23 @@ $('.goles-input').on('change',function(){
       }
     })
 });
+$('.golesV-input').on('change',function(){
+    var partido = $(this).data('partido');
+    var jugador = $(this).data('jugador');
+    var equipo = $(this).data('equipo');
+    var cantidad = $(this).val();
+    $.post({
+      url: '?r=goles/modificar',
+      data: {
+          jugador:jugador,
+          partido:partido,
+          cantidad:cantidad,
+          equipo:equipo
+      },
+      success: function(respuesta){
+          var goles = document.getElementById('golesvisitante');
+          goles.value = respuesta; 
+      }
+    })
+});
 

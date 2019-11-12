@@ -15,23 +15,21 @@ use Yii;
  *
  * @property Equipo $equipo
  */
-class Jugador extends \yii\db\ActiveRecord
-{
+class Jugador extends \yii\db\ActiveRecord {
+
     /**
      * {@inheritdoc}
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'jugador';
     }
 
     /**
      * {@inheritdoc}
      */
-    public function rules()
-    {
+    public function rules() {
         return [
-            ['nombre_jugador','required'],
+            ['equipo_id', 'required'],
             [['equipo_id', 'categoria'], 'integer'],
             [['nombre_jugador', 'apellido_jugador'], 'string', 'max' => 120],
             [['equipo_id'], 'exist', 'skipOnError' => true, 'targetClass' => Equipo::className(), 'targetAttribute' => ['equipo_id' => 'id_equipo']],
@@ -41,13 +39,11 @@ class Jugador extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'id_jugador' => 'Id Jugador',
             'equipo_id' => 'Equipo ID',
             'nombre_jugador' => 'Nombre Jugador',
-            'categoria' => 'Categoria',
             'apellido_jugador' => 'Apellido Jugador',
         ];
     }
@@ -55,14 +51,16 @@ class Jugador extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getEquipo()
-    {
+    public function getEquipo() {
         return $this->hasOne(Equipo::className(), ['id_equipo' => 'equipo_id']);
     }
-    
-    
-    function golesPartido($partido_id){
-        $gol = Goles::findOne(['partido_id'=> $partido_id, 'jugador_id'=> $this->id_jugador]);
-        return $gol->cant_goles;
+
+    function golesPartido($partido_id) {
+        $gol = Goles::findOne(['partido_id' => $partido_id, 'jugador_id' => $this->id_jugador]);
+        if ($gol) {
+            return $gol->cant_goles;
+        }
+        return 0;
     }
+
 }

@@ -142,3 +142,8 @@ a:focus{
                 .barra-top:hover{
                     background: grey;
                 }
+                
+                .marcador{
+                    width: 40px !important;
+                    height: 49px;
+                }

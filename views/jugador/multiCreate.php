@@ -30,8 +30,8 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php foreach ($jugadores as $i => $model): ?>
             <tr class="jugador">
                     <?php
-                    $equipos = app\models\Equipo::find()->all();
-                    $jugadores = yii\helpers\ArrayHelper::map($equipos, 'id_equipo', 'nombre_equipo');
+                    $equipos = app\models\Equipo::find()->orderBy('nombre_equipo, categoria')->all();
+                    $jugadores = yii\helpers\ArrayHelper::map($equipos, 'id_equipo',  function($model) {return $model['nombre_equipo']."-".$model['categoria'];});
                     ?>
                     <td>
                         <?= $form->field($model, "[$i]equipo_id")->dropDownList($jugadores, ['prompt' => 'Elija el equipo equipo'])->label(false) ?>
@@ -44,30 +44,22 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?= $form->field($model, "[$i]apellido_jugador")->textInput(['maxlength' => true])->label(false) ?>
 
                     </td>
-                    <td>
-                        <?= $form->field($model, "[$i]categoria")->textInput()->label(false) ?>
 
-                    </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
     <div class="form-group">
-        <input type="hidden" id="cant" value="<?= $i?>">
+        <input type="hidden" id="add-jugador" name="add-jugador" value=0>
         <?= Html::button('+',['class' => 'btn btn-primary add-jugador']) ?>
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
     <?php ActiveForm::end(); ?>
     
     <?php
-    $js = " $('.add-jugador').on('click',function(){
-            var cant = document.getElementById('cant');
-            cant.value = parseInt(cant.value) + 1;
-            $.pjax.reload({
-            type:'POST',
-            container:'#pjax-multi-jugador',
-            data:{cant:cant.value}
-            });
+    $js = "$('.add-jugador').on('click',function(){
+                $('#add-jugador').val(true);
+                $('form').submit();
             
         });";
     $this->registerJs($js);
