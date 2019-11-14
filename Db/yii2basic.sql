@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 24-10-2019 a las 18:56:54
+-- Tiempo de generación: 14-11-2019 a las 20:50:32
 -- Versión del servidor: 5.7.27-0ubuntu0.18.04.1
 -- Versión de PHP: 7.2.19-0ubuntu0.18.04.2
 
@@ -137,20 +137,22 @@ CREATE TABLE `Club` (
 --
 
 INSERT INTO `Club` (`id_club`, `nombre_club`, `direccion`) VALUES
-(1, 'Talleres', 'hjakdsasd'),
-(2, 'San Lorenzo', 'jhaksdsad'),
-(3, 'dfsdfsdsds', 'sdfs'),
-(4, 'Barrilete Cosmico', 'Islas Malvinas 202'),
-(5, 'Equipo 1', 'Direccion 1'),
-(6, 'Equipo 2', 'Direccion 2'),
-(7, 'Equipo 3', 'Direccion 3'),
-(8, 'Equipo 4', 'Direccion 4'),
-(9, 'Equipo 5', 'Direccion 5'),
-(10, 'Equipo 6', 'Direccion 6'),
-(11, 'Equipo 7', 'Direccion 7'),
-(12, 'Equipo 8', 'Direccion 8'),
-(13, 'Equipo 9', 'Direccion 9'),
-(14, 'Equipo 10', 'Direccion 10');
+(1, 'SEMILLERO ILCEN', NULL),
+(2, 'UNION MARITIMA', NULL),
+(3, 'RACING', NULL),
+(4, 'UNION', NULL),
+(5, 'TALLERES', NULL),
+(6, 'C.S.D.R.I.G', ''),
+(7, 'P.G.A. y O.', NULL),
+(8, 'MONUMENTAL', NULL),
+(9, 'LOS PICANTITOS', NULL),
+(10, 'E.M.I.G', NULL),
+(11, 'EL LOCO PERON', NULL),
+(12, 'FERRO', NULL),
+(13, 'DEP. SIERRA GRANDE', NULL),
+(14, 'DEP. CEFERINO', NULL),
+(15, 'E.M.P.S.A.E', NULL),
+(16, 'BARRILETE COSMICO', NULL);
 
 -- --------------------------------------------------------
 
@@ -199,41 +201,50 @@ CREATE TABLE `equipo` (
 --
 
 INSERT INTO `equipo` (`id_equipo`, `nombre_equipo`, `club_id`, `dt_id`, `categoria`) VALUES
-(1, 'Talleres 2012', 1, NULL, 2012),
-(2, 'Talleres 2013', NULL, NULL, 2012),
-(3, 'Independiente', 3, NULL, 2012),
-(5, 'Barrilete Cosmico 2012', 4, 1, 2012),
-(6, 'equipo azul', 5, NULL, 2012),
-(7, 'equipo rojo', 5, NULL, 2012),
-(8, 'equipo verde', 5, NULL, 2012),
-(9, 'equipo naranja', 5, NULL, 2012),
-(10, 'equipo amarillo', 5, NULL, 2012),
-(11, 'equipo blanco', 5, NULL, 2012),
-(12, 'equipo azul', 6, NULL, 2013),
-(13, 'equipo rojo', 6, NULL, 2013),
-(14, 'equipo verde', 6, NULL, 2013),
-(15, 'equipo naranja', 6, NULL, 2013),
-(16, 'equipo amarillo', 6, NULL, 2013),
-(17, 'equipo blanco', 6, NULL, 2013),
-(18, 'equipo azul', 7, NULL, 2013),
-(19, 'equipo rojo', 7, NULL, 2013),
-(20, 'equipo verde', 7, NULL, 2013),
-(21, 'equipo naranja', 7, NULL, 2013),
-(22, 'equipo amarillo', 7, NULL, 2013),
-(23, 'equipo blanco', 7, NULL, 2013),
-(24, 'equipo azul', 8, NULL, 2013),
-(25, 'equipo rojo', 8, NULL, 2013),
-(26, 'equipo verde', 8, NULL, 2013),
-(27, 'equipo naranja', 8, NULL, 2013),
-(28, 'equipo amarillo', 8, NULL, 2013),
-(29, 'equipo blanco', 8, NULL, 2013),
-(30, 'equipo azul', 9, NULL, 2013),
-(31, 'equipo rojo', 9, NULL, 2013),
-(32, 'equipo verde', 9, NULL, 2013),
-(33, 'equipo naranja', 9, NULL, 2013),
-(34, 'equipo amarillo', 9, NULL, 2013),
-(35, 'equipo blanco', 9, NULL, 2013),
-(36, 'Equipo Cualquiera', 4, NULL, 2014);
+(37, 'UNION', 4, NULL, 2011),
+(38, 'SEMILLERO ILCEN', 1, NULL, 2011),
+(39, 'C.S.D.R.I.G', 6, NULL, 2011),
+(40, 'P.G.A. y O.', 7, NULL, 2011),
+(41, 'BARRILETE COSMICO', 16, NULL, 2011),
+(42, 'MONUMENTAL CONESA', 8, NULL, 2011),
+(43, 'LOS PICANTITOS', 9, NULL, 2012),
+(44, 'UNION', 4, NULL, 2012),
+(45, 'UNION MARITIMA', 2, NULL, 2012),
+(46, 'P.G.A. y O.', 7, NULL, 2012),
+(47, 'DEP.CEFERINO', 14, NULL, 2012),
+(48, 'TALLERES', 5, NULL, 2012),
+(49, 'BARRILETE COSMICO', 16, NULL, 2012),
+(50, 'RACING', 3, NULL, 2012),
+(51, 'TALLERES AMARILLO', 5, NULL, 2013),
+(52, 'SEMILLERO ILCEM', 1, NULL, 2013),
+(53, 'E.M.I.G', 10, NULL, 2013),
+(54, 'P.G.A. y O.', 7, NULL, 2013),
+(55, 'BARRILETE COSMICO', 16, NULL, 2013),
+(56, 'LOS PICANTITOS', 9, NULL, 2013),
+(57, 'BARRILETE COSMICO', 16, NULL, 2010),
+(58, 'RACING', 3, NULL, 2010),
+(59, 'TALLERES', 5, NULL, 2010),
+(60, 'C.S.D.R.I.G', 6, NULL, 2010),
+(61, 'BARRILETE COSMICO', 16, NULL, 2009),
+(63, 'P.G.A. y O.', 7, NULL, 2009),
+(64, 'EL LOCO PERON', 11, NULL, 2009),
+(65, 'MONUMENTAL CONESA', 8, NULL, 2009),
+(66, 'TALLERES', 5, NULL, 2009),
+(67, 'C.S.D.R.I.G', 6, NULL, 2009),
+(68, 'DEP.SIERRA GRANDE', 13, NULL, 2008),
+(69, 'FERRO', 12, NULL, 2008),
+(70, 'TALLERES', 5, NULL, 2008),
+(71, 'P.G.A. y O.', 7, NULL, 2008),
+(72, 'C.S.D.R.I.G', 6, NULL, 2008),
+(73, 'DEP.CEFERINO', 14, NULL, 2008),
+(74, 'E.M.P.S.A.E', 15, NULL, 2007),
+(75, 'MONUMENTAL CONESA', 8, NULL, 2007),
+(76, 'C.S.D.R.I.G', 6, NULL, 2007),
+(77, 'FERRO', 12, NULL, 2007),
+(78, 'TALLERES', 5, NULL, 2007),
+(79, 'P.G.A. y O.', 7, NULL, 2007),
+(80, 'TALLERES', 5, NULL, 2006),
+(81, 'UNION ROJO', 4, NULL, 2006);
 
 -- --------------------------------------------------------
 
@@ -253,8 +264,42 @@ CREATE TABLE `fecha` (
 --
 
 INSERT INTO `fecha` (`id_fecha`, `torneo_id`, `numero`, `estado`) VALUES
-(1, 1, 1, ''),
-(2, 1, 2, '');
+(111, 5, 1, NULL),
+(112, 5, 1, NULL),
+(113, 5, 2, NULL),
+(114, 5, 3, NULL),
+(115, 5, 4, NULL),
+(116, 5, 5, NULL),
+(117, 5, 1, NULL),
+(118, 5, 2, NULL),
+(119, 5, 3, NULL),
+(120, 5, 4, NULL),
+(121, 5, 5, NULL),
+(122, 5, 1, NULL),
+(123, 5, 2, NULL),
+(124, 5, 3, NULL),
+(125, 5, 4, NULL),
+(126, 5, 5, NULL),
+(127, 5, 1, NULL),
+(128, 5, 2, NULL),
+(129, 5, 3, NULL),
+(130, 5, 1, NULL),
+(131, 5, 2, NULL),
+(132, 5, 3, NULL),
+(133, 5, 4, NULL),
+(134, 5, 5, NULL),
+(135, 5, 1, NULL),
+(136, 5, 2, NULL),
+(137, 5, 3, NULL),
+(138, 5, 4, NULL),
+(139, 5, 5, NULL),
+(140, 5, 6, NULL),
+(141, 5, 7, NULL),
+(142, 5, 1, NULL),
+(143, 5, 2, NULL),
+(144, 5, 3, NULL),
+(145, 5, 4, NULL),
+(146, 5, 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -266,7 +311,8 @@ CREATE TABLE `goles` (
   `id_gol` int(11) NOT NULL,
   `partido_id` int(11) DEFAULT NULL,
   `jugador_id` int(11) DEFAULT NULL,
-  `equipo_id` int(11) DEFAULT NULL
+  `equipo_id` int(11) DEFAULT NULL,
+  `cant_goles` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -302,33 +348,16 @@ CREATE TABLE `jugador` (
 --
 
 INSERT INTO `jugador` (`id_jugador`, `equipo_id`, `nombre_jugador`, `categoria`, `apellido_jugador`) VALUES
-(1, 2, 'Marco Antonio', 2010, 'Solis'),
-(4, 1, 'Nombre 1', 2012, 'Apellido1q'),
-(5, 2, 'nombre 2', 2012, 'apellido 2'),
-(6, 3, 'nombre 3', 2012, 'apellido 3'),
-(7, 5, 'nombre 4', 2012, 'apellido 4'),
-(8, NULL, '', NULL, ''),
-(9, NULL, NULL, NULL, NULL),
-(10, 5, 'nombre jugador 1', 2013, 'apellido jugador 1'),
-(11, 5, 'nombre jugador 2', 2013, 'apellido jugador 2'),
-(12, 5, 'nombre jugador 3', 2013, 'apellido jugador 3'),
-(13, 5, 'nombre jugador 4', 2013, 'apellido jugador 4'),
-(14, 5, 'nombre jugador 5', 2013, 'apellido jugador 5'),
-(15, 5, 'nombre jugador 6', 2013, 'apellido jugador 6'),
-(16, 5, 'nombre jugador 7', 2013, 'apellido jugador 7'),
-(17, 5, 'nombre jugador 8', 2013, 'apellido jugador 8'),
-(18, 5, 'nombre jugador 9', 2013, 'apellido jugador 9'),
-(19, 5, 'nombre jugador 10', 2013, 'apellido jugador 10'),
-(20, 6, 'nombre jugador 1', 2013, 'apellido jugador 1'),
-(21, 6, 'nombre jugador 2', 2013, 'apellido jugador 2'),
-(22, 6, 'nombre jugador 3', 2013, 'apellido jugador 3'),
-(23, 6, 'nombre jugador 4', 2013, 'apellido jugador 4'),
-(24, 6, 'nombre jugador 5', 2013, 'apellido jugador 5'),
-(25, 6, 'nombre jugador 6', 2013, 'apellido jugador 6'),
-(26, 6, 'nombre jugador 7', 2013, 'apellido jugador 7'),
-(27, 6, 'nombre jugador 8', 2013, 'apellido jugador 8'),
-(28, 6, 'nombre jugador 9', 2013, 'apellido jugador 9'),
-(29, 6, 'nombre jugador 10', 2013, 'apellido jugador 10');
+(1, 49, 'Ramiro', NULL, 'Bernabe'),
+(3, 49, 'Jesus', NULL, 'Pasos'),
+(4, 37, 'Jugador', NULL, 'Uno'),
+(5, 37, 'Jugador', NULL, 'Dos'),
+(6, 48, 'Jugador', NULL, 'Uno'),
+(7, 48, 'Jugador', NULL, 'Dos'),
+(8, 48, 'Jugador', NULL, 'Tres'),
+(9, 44, 'Jugador', NULL, 'Uno'),
+(10, 44, 'Jugador', NULL, 'Dos'),
+(11, 43, 'Jugador', NULL, 'Uno');
 
 -- --------------------------------------------------------
 
@@ -341,13 +370,6 @@ CREATE TABLE `liga` (
   `torneo_id` int(11) DEFAULT NULL,
   `categoria` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `liga`
---
-
-INSERT INTO `liga` (`id_liga`, `torneo_id`, `categoria`) VALUES
-(1, 1, 2012);
 
 -- --------------------------------------------------------
 
@@ -395,15 +417,125 @@ CREATE TABLE `partido` (
   `cancha_id` int(11) DEFAULT NULL,
   `fecha_inicio` datetime DEFAULT NULL,
   `liga_id` int(11) DEFAULT NULL,
-  `fecha_id` int(11) DEFAULT NULL
+  `num_fecha` int(11) DEFAULT NULL,
+  `torneo_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `partido`
 --
 
-INSERT INTO `partido` (`id_partido`, `equipolocal_id`, `equipovisitante_id`, `cancha_id`, `fecha_inicio`, `liga_id`, `fecha_id`) VALUES
-(1, 1, 5, 2, '2019-07-03 14:00:00', 1, NULL);
+INSERT INTO `partido` (`id_partido`, `equipolocal_id`, `equipovisitante_id`, `cancha_id`, `fecha_inicio`, `liga_id`, `num_fecha`, `torneo_id`) VALUES
+(113, 80, 81, 2, NULL, 2006, NULL, NULL),
+(114, 74, 75, 2, NULL, 2007, NULL, NULL),
+(115, 76, 79, 2, NULL, 2007, NULL, NULL),
+(116, 77, 78, 2, NULL, 2007, NULL, NULL),
+(117, 74, 76, 2, NULL, 2007, NULL, NULL),
+(118, 77, 75, 2, NULL, 2007, NULL, NULL),
+(119, 78, 79, 2, NULL, 2007, NULL, NULL),
+(120, 74, 77, 2, NULL, 2007, NULL, NULL),
+(121, 78, 76, 2, NULL, 2007, NULL, NULL),
+(122, 79, 75, 2, NULL, 2007, NULL, NULL),
+(123, 74, 78, 2, NULL, 2007, NULL, NULL),
+(124, 79, 77, 2, NULL, 2007, NULL, NULL),
+(125, 75, 76, 2, NULL, 2007, NULL, NULL),
+(126, 74, 79, 2, NULL, 2007, NULL, NULL),
+(127, 75, 78, 2, NULL, 2007, NULL, NULL),
+(128, 76, 77, 2, NULL, 2007, NULL, NULL),
+(129, 68, 69, 2, NULL, 2008, NULL, NULL),
+(130, 70, 73, 2, NULL, 2008, NULL, NULL),
+(131, 71, 72, 2, NULL, 2008, NULL, NULL),
+(132, 68, 70, 2, NULL, 2008, NULL, NULL),
+(133, 71, 69, 2, NULL, 2008, NULL, NULL),
+(134, 72, 73, 2, NULL, 2008, NULL, NULL),
+(135, 68, 71, 2, NULL, 2008, NULL, NULL),
+(136, 72, 70, 2, NULL, 2008, NULL, NULL),
+(137, 73, 69, 2, NULL, 2008, NULL, NULL),
+(138, 68, 72, 2, NULL, 2008, NULL, NULL),
+(139, 73, 71, 2, NULL, 2008, NULL, NULL),
+(140, 69, 70, 2, NULL, 2008, NULL, NULL),
+(141, 68, 73, 2, NULL, 2008, NULL, NULL),
+(142, 69, 72, 2, NULL, 2008, NULL, NULL),
+(143, 70, 71, 2, NULL, 2008, NULL, NULL),
+(144, 61, 63, 2, NULL, 2009, NULL, NULL),
+(145, 64, 67, 2, NULL, 2009, NULL, NULL),
+(146, 65, 66, 2, NULL, 2009, NULL, NULL),
+(147, 61, 64, 2, NULL, 2009, NULL, NULL),
+(148, 65, 63, 2, NULL, 2009, NULL, NULL),
+(149, 66, 67, 2, NULL, 2009, NULL, NULL),
+(150, 61, 65, 2, NULL, 2009, NULL, NULL),
+(151, 66, 64, 2, NULL, 2009, NULL, NULL),
+(152, 67, 63, 2, NULL, 2009, NULL, NULL),
+(153, 61, 66, 2, NULL, 2009, NULL, NULL),
+(154, 67, 65, 2, NULL, 2009, NULL, NULL),
+(155, 63, 64, 2, NULL, 2009, NULL, NULL),
+(156, 61, 67, 2, NULL, 2009, NULL, NULL),
+(157, 63, 66, 2, NULL, 2009, NULL, NULL),
+(158, 64, 65, 2, NULL, 2009, NULL, NULL),
+(159, 57, 58, 2, NULL, 2010, NULL, NULL),
+(160, 59, 60, 2, NULL, 2010, NULL, NULL),
+(161, 57, 59, 2, NULL, 2010, NULL, NULL),
+(162, 60, 58, 2, NULL, 2010, NULL, NULL),
+(163, 57, 60, 2, NULL, 2010, NULL, NULL),
+(164, 58, 59, 2, NULL, 2010, NULL, NULL),
+(165, 37, 38, 2, NULL, 2011, NULL, NULL),
+(166, 39, 42, 2, NULL, 2011, NULL, NULL),
+(167, 40, 41, 2, NULL, 2011, NULL, NULL),
+(168, 37, 39, 2, NULL, 2011, NULL, NULL),
+(169, 40, 38, 2, NULL, 2011, NULL, NULL),
+(170, 41, 42, 2, NULL, 2011, NULL, NULL),
+(171, 37, 40, 2, NULL, 2011, NULL, NULL),
+(172, 41, 39, 2, NULL, 2011, NULL, NULL),
+(173, 42, 38, 2, NULL, 2011, NULL, NULL),
+(174, 37, 41, 2, NULL, 2011, NULL, NULL),
+(175, 42, 40, 2, NULL, 2011, NULL, NULL),
+(176, 38, 39, 2, NULL, 2011, NULL, NULL),
+(177, 37, 42, 2, NULL, 2011, NULL, NULL),
+(178, 38, 41, 2, NULL, 2011, NULL, NULL),
+(179, 39, 40, 2, NULL, 2011, NULL, NULL),
+(180, 43, 44, 2, NULL, 2012, NULL, NULL),
+(181, 45, 50, 2, NULL, 2012, NULL, NULL),
+(182, 46, 49, 2, NULL, 2012, NULL, NULL),
+(183, 47, 48, 2, NULL, 2012, NULL, NULL),
+(184, 43, 45, 2, NULL, 2012, NULL, NULL),
+(185, 46, 44, 2, NULL, 2012, NULL, NULL),
+(186, 47, 50, 2, NULL, 2012, NULL, NULL),
+(187, 48, 49, 2, NULL, 2012, NULL, NULL),
+(188, 43, 46, 2, NULL, 2012, NULL, NULL),
+(189, 47, 45, 2, NULL, 2012, NULL, NULL),
+(190, 48, 44, 2, NULL, 2012, NULL, NULL),
+(191, 49, 50, 2, NULL, 2012, NULL, NULL),
+(192, 43, 47, 2, NULL, 2012, NULL, NULL),
+(193, 48, 46, 2, NULL, 2012, NULL, NULL),
+(194, 49, 45, 2, NULL, 2012, NULL, NULL),
+(195, 50, 44, 2, NULL, 2012, NULL, NULL),
+(196, 43, 48, 2, NULL, 2012, NULL, NULL),
+(197, 49, 47, 2, NULL, 2012, NULL, NULL),
+(198, 50, 46, 2, NULL, 2012, NULL, NULL),
+(199, 44, 45, 2, NULL, 2012, NULL, NULL),
+(200, 43, 49, 2, NULL, 2012, NULL, NULL),
+(201, 50, 48, 2, NULL, 2012, NULL, NULL),
+(202, 44, 47, 2, NULL, 2012, NULL, NULL),
+(203, 45, 46, 2, NULL, 2012, NULL, NULL),
+(204, 43, 50, 2, NULL, 2012, NULL, NULL),
+(205, 44, 49, 2, NULL, 2012, NULL, NULL),
+(206, 45, 48, 2, NULL, 2012, NULL, NULL),
+(207, 46, 47, 2, NULL, 2012, NULL, NULL),
+(208, 51, 52, 2, NULL, 2013, NULL, NULL),
+(209, 53, 56, 2, NULL, 2013, NULL, NULL),
+(210, 54, 55, 2, NULL, 2013, NULL, NULL),
+(211, 51, 53, 2, NULL, 2013, NULL, NULL),
+(212, 54, 52, 2, NULL, 2013, NULL, NULL),
+(213, 55, 56, 2, NULL, 2013, NULL, NULL),
+(214, 51, 54, 2, NULL, 2013, NULL, NULL),
+(215, 55, 53, 2, NULL, 2013, NULL, NULL),
+(216, 56, 52, 2, NULL, 2013, NULL, NULL),
+(217, 51, 55, 2, NULL, 2013, NULL, NULL),
+(218, 56, 54, 2, NULL, 2013, NULL, NULL),
+(219, 52, 53, 2, NULL, 2013, NULL, NULL),
+(220, 51, 56, 2, NULL, 2013, NULL, NULL),
+(221, 52, 55, 2, NULL, 2013, NULL, NULL),
+(222, 53, 54, 2, NULL, 2013, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -507,7 +639,7 @@ CREATE TABLE `torneo` (
 --
 
 INSERT INTO `torneo` (`id_torneo`, `nombre_torneo`, `fecha_inicio`, `fecha_fin`) VALUES
-(1, 'Tomas Porra 2019', '2019-06-15 00:00:00', '2019-08-30 00:00:00');
+(5, 'automatico', '2019-06-15 00:00:00', '2019-08-30 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -642,11 +774,10 @@ ALTER TABLE `migration`
 --
 ALTER TABLE `partido`
   ADD PRIMARY KEY (`id_partido`),
-  ADD KEY `fk_partido_1_idx` (`liga_id`),
   ADD KEY `fk_partido_2_idx` (`cancha_id`),
   ADD KEY `fk_partido_3_idx` (`equipolocal_id`),
   ADD KEY `fk_partido_4_idx` (`equipovisitante_id`),
-  ADD KEY `fk_partido_5_idx` (`fecha_id`);
+  ADD KEY `fk_partido_1_idx` (`torneo_id`);
 
 --
 -- Indices de la tabla `profile`
@@ -702,17 +833,17 @@ ALTER TABLE `canchas`
 -- AUTO_INCREMENT de la tabla `Club`
 --
 ALTER TABLE `Club`
-  MODIFY `id_club` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_club` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT de la tabla `equipo`
 --
 ALTER TABLE `equipo`
-  MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 --
 -- AUTO_INCREMENT de la tabla `fecha`
 --
 ALTER TABLE `fecha`
-  MODIFY `id_fecha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_fecha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=147;
 --
 -- AUTO_INCREMENT de la tabla `goles`
 --
@@ -727,17 +858,17 @@ ALTER TABLE `inicioCarousel`
 -- AUTO_INCREMENT de la tabla `jugador`
 --
 ALTER TABLE `jugador`
-  MODIFY `id_jugador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_jugador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT de la tabla `liga`
 --
 ALTER TABLE `liga`
-  MODIFY `id_liga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_liga` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `partido`
 --
 ALTER TABLE `partido`
-  MODIFY `id_partido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_partido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=228;
 --
 -- AUTO_INCREMENT de la tabla `social_account`
 --
@@ -752,7 +883,7 @@ ALTER TABLE `tecnico`
 -- AUTO_INCREMENT de la tabla `torneo`
 --
 ALTER TABLE `torneo`
-  MODIFY `id_torneo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_torneo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `user`
 --
@@ -816,11 +947,10 @@ ALTER TABLE `liga`
 -- Filtros para la tabla `partido`
 --
 ALTER TABLE `partido`
-  ADD CONSTRAINT `fk_partido_1` FOREIGN KEY (`liga_id`) REFERENCES `liga` (`id_liga`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_partido_1` FOREIGN KEY (`torneo_id`) REFERENCES `torneo` (`id_torneo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_partido_2` FOREIGN KEY (`cancha_id`) REFERENCES `canchas` (`id_cancha`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_partido_3` FOREIGN KEY (`equipolocal_id`) REFERENCES `equipo` (`id_equipo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_partido_4` FOREIGN KEY (`equipovisitante_id`) REFERENCES `equipo` (`id_equipo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_partido_5` FOREIGN KEY (`fecha_id`) REFERENCES `fecha` (`id_fecha`);
+  ADD CONSTRAINT `fk_partido_4` FOREIGN KEY (`equipovisitante_id`) REFERENCES `equipo` (`id_equipo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `profile`

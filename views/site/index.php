@@ -12,6 +12,7 @@ $this->params['frontend']=true;
 
         <div class="row">
             <div class="col-lg-4 text-center bg-danger">
+                <p><a class="btn btn-lg btn-danger" href="index.php?r=partido%2Fcrear-partido-por-fecha">Crear Partido/Fecha</a></p>
                 <p><a class="btn btn-lg btn-danger" href="index.php?r=club%2Findex">Crear Club</a></p>
                 <p><a class="btn btn-lg btn-danger" href="index.php?r=torneo%2Findex">Crear Torneo</a></p>
                 <p><a class="btn btn-lg btn-danger" href="index.php?r=jugador%2Findex">Crear Jugador</a></p>

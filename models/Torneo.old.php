@@ -12,9 +12,7 @@ use Yii;
  * @property string $fecha_inicio
  * @property string $fecha_fin
  *
- * @property Fecha[] $fechas
  * @property Liga[] $ligas
- * @property Partido[] $partidos
  */
 class Torneo extends \yii\db\ActiveRecord
 {
@@ -56,21 +54,5 @@ class Torneo extends \yii\db\ActiveRecord
     public function getFechas()
     {
         return $this->hasMany(Fecha::className(), ['torneo_id' => 'id_torneo']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getLigas()
-    {
-        return $this->hasMany(Liga::className(), ['torneo_id' => 'id_torneo']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getPartidos()
-    {
-        return $this->hasMany(Partido::className(), ['torneo_id' => 'id_torneo']);
     }
 }

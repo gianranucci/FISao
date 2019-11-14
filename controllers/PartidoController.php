@@ -105,10 +105,12 @@ class PartidoController extends Controller
      */
     public function actionDelete($id)
     {
-        $fecha_id = $this->findModel($id)->fecha_id;
+        $partido = $this->findModel($id);
+        $fecha_id = $partido->num_fecha;
+        $torneo_id = $partido->torneo_id;
         $this->findModel($id)->delete();
 
-        return $this->redirect(['crear-partido-por-fecha','fecha_id'=>$fecha_id]);
+        return $this->redirect(['crear-partido-fecha','num_fecha'=>$fecha_id,'torneo_id'=>$torneo_id]);
     }
 
     /**
@@ -127,16 +129,16 @@ class PartidoController extends Controller
         throw new NotFoundHttpException('The requested page does not exist.');
     }
     
-    function actionCrearPartidoPorFecha($fecha_nro)
+    function actionCrearPartidoFecha($num_fecha=1,$torneo_id)
     {
-        
+//        $fecha = \app\models\Fecha::findOne($fecha_id);
         $addPartido = Yii::$app->request->post('add-partido');
         if($addPartido){
-            $partido = new Partido(['fecha_id'=>$fecha_nro]);
+            $partido = new Partido(['num_fecha'=>$num_fecha,'torneo_id'=>$torneo_id]);
             $partido->save();
         }
         
-        $partidos = Partido::find()->where(['fecha_id'=>$fecha_nro])->all();
+        $partidos = Partido::find()->where(['num_fecha'=>$num_fecha,'torneo_id'=>$torneo_id])->all();
 
         if (Model::loadMultiple($partidos, Yii::$app->request->post()) && Model::validateMultiple($partidos)) {
             foreach ($partidos as $partido) {
@@ -147,7 +149,10 @@ class PartidoController extends Controller
 
         return $this->render('multiCreate', [
                     'partidos' => $partidos,
-                    'fecha_nro' => $fecha_nro,
+                    'num_fecha'=> $num_fecha,
+                    'torneo_id'=> $torneo_id,
+//                    'fecha_id' => $fecha_id,
+//                    'fecha' => $fecha,
         ]);
         
     }

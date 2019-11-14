@@ -31,6 +31,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'nombre_torneo',
             'fecha_inicio',
             'fecha_fin',
+            [
+                'label'=>'accion',
+                'format'=>'raw',
+                'value'=> function($model){
+                    return yii\bootstrap4\Html::a('Crear Fechas', ['partido/crear-partido-fecha','torneo_id'=>$model->id_torneo], ['class'=>'btn btn-primary']);
+                }
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

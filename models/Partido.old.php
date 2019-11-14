@@ -13,10 +13,8 @@ use Yii;
  * @property int $cancha_id
  * @property string $fecha_inicio
  * @property int $liga_id
- * @property int $num_fecha
- * @property int $torneo_id
  *
- * @property Torneo $torneo
+ * @property Liga $liga
  * @property Canchas $cancha
  * @property Equipo $equipolocal
  * @property Equipo $equipovisitante
@@ -37,9 +35,9 @@ class Partido extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['equipolocal_id', 'equipovisitante_id', 'cancha_id', 'liga_id', 'num_fecha', 'torneo_id'], 'integer'],
-            [['fecha_inicio'], 'safe'],
-            [['torneo_id'], 'exist', 'skipOnError' => true, 'targetClass' => Torneo::className(), 'targetAttribute' => ['torneo_id' => 'id_torneo']],
+            [['equipolocal_id', 'equipovisitante_id', 'cancha_id', 'liga_id'], 'integer'],
+            [['fecha_inicio','fecha_id'], 'safe'],
+            [['fecha_id'], 'exist', 'skipOnError' => true, 'targetClass' => Fecha::className(), 'targetAttribute' => ['fecha_id' => 'id_fecha']],
             [['cancha_id'], 'exist', 'skipOnError' => true, 'targetClass' => Canchas::className(), 'targetAttribute' => ['cancha_id' => 'id_cancha']],
             [['equipolocal_id'], 'exist', 'skipOnError' => true, 'targetClass' => Equipo::className(), 'targetAttribute' => ['equipolocal_id' => 'id_equipo']],
             [['equipovisitante_id'], 'exist', 'skipOnError' => true, 'targetClass' => Equipo::className(), 'targetAttribute' => ['equipovisitante_id' => 'id_equipo']],
@@ -53,22 +51,24 @@ class Partido extends \yii\db\ActiveRecord
     {
         return [
             'id_partido' => 'Id Partido',
-            'equipolocal_id' => 'Equipolocal ID',
-            'equipovisitante_id' => 'Equipovisitante ID',
-            'cancha_id' => 'Cancha ID',
+            'equipolocal_id' => 'Equipo Local',
+            'equipovisitante_id' => 'Equipo Visitante',
+            'cancha_id' => 'Cancha',
             'fecha_inicio' => 'Fecha Inicio',
-            'liga_id' => 'Liga ID',
-            'num_fecha' => 'Num Fecha',
-            'torneo_id' => 'Torneo ID',
+            'liga_id' => 'Liga',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTorneo()
+    public function getLiga()
     {
-        return $this->hasOne(Torneo::className(), ['id_torneo' => 'torneo_id']);
+        return $this->hasOne(Liga::className(), ['id_liga' => 'liga_id']);
+    }
+    public function getFecha()
+    {
+        return $this->hasOne(Fecha::className(), ['id_fecha' => 'fecha_id']);
     }
 
     /**
@@ -94,4 +94,6 @@ class Partido extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Equipo::className(), ['id_equipo' => 'equipovisitante_id']);
     }
+    
+    
 }

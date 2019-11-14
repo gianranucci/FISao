@@ -7,12 +7,19 @@ use kartik\datetime\DateTimePicker;
 /* @var $this yii\web\View */
 /* @var $model app\models\Jugador */
 
-$this->title = "Partidos de la $fecha_nro Fecha ";
+
+$this->title = "Partidos de la $num_fecha  ";
 $this->params['breadcrumbs'][] = ['label' => 'Partidos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="partido-create">
 
+    <?php
+    $fechas = app\models\Partido::find()->select(['num_fecha'])->where(['torneo_id'=>$torneo_id])->groupBy(['num_fecha'])->all();
+    $items = \yii\helpers\ArrayHelper::map($fechas, 'num_fecha', 'num_fecha');
+    echo Html::dropDownList('num_fecha', $num_fecha, $items, ['class'=>'form-control']);
+    ?>
+    
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?php yii\widgets\Pjax::begin(['id' => 'pjax-multi-partido']) ?>
@@ -70,7 +77,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                     </td>
                     <td>
-                        <?= $model->fecha->numero ?? '' ?> Fecha
+                        <?= $model->num_fecha ?? '' ?> Fecha
                     </td>
                     <td>
                         <?php
