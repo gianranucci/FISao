@@ -110,29 +110,29 @@ class TorneoController extends Controller {
                 $partidosPorFecha = count($equiposPorCategoria) / 2;
                 $fechaNum = 0;
                 for ($f = 0; $f < $cantidadFecha; $f++) {
-                    $fecha = new Fecha();
+                    //$fecha = new Fecha();
                     $fechaNum++;
-                    $fecha->torneo_id = $model->id_torneo;
-                    $fecha->numero = $fechaNum;
-                    $fecha->save();
+                    //$fecha->torneo_id = $model->id_torneo;
+                    //$fecha->numero = $fechaNum;
+                    //$fecha->save();
                     $punteroInicio = 2;
                     $punteroFin = $cantidadDeEquipos - 1;
                     for ($p = 0; $p < $partidosPorFecha; $p++) {
-                        $partido = new Partido;
+                        $partido = new Partido(['num_fecha'=>$fechaNum, 'torneo_id' => $model->id_torneo]);
 
                         if ($p == 0) {
-                            $partido->fecha_id = $fecha->id_fecha;
+                            //$partido->fecha_id = $fecha->id_fecha;
                             $partido->equipolocal_id = $equiposPorCategoria[0]->id_equipo;
                             $partido->equipovisitante_id = $equiposPorCategoria[1]->id_equipo;
-                            $partido->cancha_id = 2;
+                            //$partido->cancha_id = 2;
                             $partido->fecha_inicio = null;
                             $partido->liga_id = $categoria->categoria;
                             $partido->save();
                         } else {
-                            $partido->fecha_id = $fecha->id_fecha;
+                            //$partido->fecha_id = $fecha->id_fecha;
                             $partido->equipolocal_id = $equiposPorCategoria[$punteroInicio]->id_equipo;
                             $partido->equipovisitante_id = $equiposPorCategoria[$punteroFin]->id_equipo;
-                            $partido->cancha_id = 2;
+                            //$partido->cancha_id = 2;
                             $partido->fecha_inicio = null;
                             $partido->liga_id = $categoria->categoria;
                             $partido->save();

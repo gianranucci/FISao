@@ -138,7 +138,7 @@ class PartidoController extends Controller
             $partido->save();
         }
         
-        $partidos = Partido::find()->where(['num_fecha'=>$num_fecha,'torneo_id'=>$torneo_id])->all();
+        $partidos = Partido::find()->where(['num_fecha'=>$num_fecha,'torneo_id'=>$torneo_id])->orderby('liga_id DESC')->all();
 
         if (Model::loadMultiple($partidos, Yii::$app->request->post()) && Model::validateMultiple($partidos)) {
             foreach ($partidos as $partido) {
