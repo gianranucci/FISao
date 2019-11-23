@@ -25,7 +25,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
+            'torneo.nombre_torneo',
+            'num_fecha',
+            'liga_id',
             'id_partido',
             'equipolocal.nombre_equipo',
             'equipovisitante.nombre_equipo',

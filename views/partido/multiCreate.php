@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php
     $fechas = app\models\Partido::find()->select(['num_fecha'])->where(['torneo_id'=>$torneo_id])->groupBy(['num_fecha'])->all();
     $items = \yii\helpers\ArrayHelper::map($fechas, 'num_fecha', 'num_fecha');
-    echo Html::dropDownList('num_fecha', $num_fecha, $items, ['class'=>'form-control']);
+    echo Html::dropDownList('num_fecha', $num_fecha, $items, ['id'=>'num_fecha','data-torneo'=>$torneo_id, 'class'=>'form-control']);
     ?>
     
     <h1><?= Html::encode($this->title) ?></h1>
