@@ -2,8 +2,11 @@
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
+$crudNs = '\app\modules\crud';
+
 
 $config = [
+    'language' => 'es-ES',
     'id' => 'basic-console',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
@@ -17,6 +20,18 @@ $config = [
         'rbac' => 'dektrium\rbac\RbacConsoleModule',
     ],
     'components' => [
+        'i18n' => [
+            'translations' => [
+                '*' => [
+                    'class'          => 'yii\i18n\PhpMessageSource',
+                    'basePath'       => '@app/messages', // if advanced application, set @frontend/messages
+                    'sourceLanguage' => 'en',
+                    'fileMap'        => [
+                        //'main' => 'main.php',
+                    ],
+                ],
+            ],
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -35,6 +50,17 @@ $config = [
         'migration' => [
             'class' => 'bizley\migration\controllers\MigrationController',
         ],
+        'batch' => [
+            'class' => 'schmunk42\giiant\commands\BatchController',
+            'overwrite' => true,
+            'modelNamespace' => 'app\\modules\\crud\\models',
+            'crudControllerNamespace' => 'app\\modules\\crud\\controllers',
+            'crudSearchModelNamespace' => 'app\\modules\\crud\\models\\search',
+            'crudViewPath' => 'modules\\crud\\views',
+
+
+            'crudTidyOutput' => true,
+        ]
     ],
         /*
           'controllerMap' => [

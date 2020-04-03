@@ -20,6 +20,9 @@ $config = [
         'cost' => 12,
         'admins' => ['admin','gian']
     ],
+    'crud' => [
+        'class' => 'app\modules\crud\Module',
+    ],
 ],
     'components' => [
         'request' => [
@@ -53,14 +56,27 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
+        'i18n' => [
+            'translations' => [
+                '*' => [
+                    'class'          => 'yii\i18n\PhpMessageSource',
+                    'basePath'       => '@app/messages', // if advanced application, set @frontend/messages
+                    'sourceLanguage' => 'en',
+                    'fileMap'        => [
+                        //'main' => 'main.php',
+                    ],
+                ],
+            ],
+        ],
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+
+
     ],
     'params' => $params,
 ];
